@@ -7,9 +7,7 @@ import static spark.Spark.post;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
 
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
@@ -17,34 +15,32 @@ import spark.template.mustache.MustacheTemplateEngine;
 public class App {
 
     public static void main(String[] args) {
-        Logger logger = LogManager.getLogger(App.class);
-
-        int port = Integer.parseInt(System.getenv("PORT"));
-        port(port);
-        logger.error("Current port number:" + port);
-
-
         port(getHerokuAssignedPort());
 
         get("/", (req, res) -> "This program takes an array of integers and two integer discretely and check if the average of that array is in the range between two integers.");
 
         post("/average", (req, res) -> {
           String input1 = req.queryParams("input1");
-          java.util.Scanner sc1 = new java.util.Scanner(input1);
-          sc1.useDelimiter("[;\r\n]+");
+          Scanner scan = new Scanner(input1);
+          scan.useDelimiter("[;\r\n]+");
           ArrayList<Integer> inputList = new ArrayList<>();
-          while (sc1.hasNext()) {
-            int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+          while (scan.hasNext()) {
+            int value = Integer.parseInt(scan.next().replaceAll("\\s",""));
             inputList.add(value);
           }
-          sc1.close();
+          scan.close();
 
           String input2 = req.queryParams("input2");
-          sc1 = new java.util.Scanner(input2);
-          sc1.useDelimiter("[;\r\n]+");
-          int a = Integer.parseInt(sc1.next().replaceAll("\\s", ""));
-          int b = Integer.parseInt(sc1.next().replaceAll("\\s", ""));
-          sc1.close();
+          scan = new Scanner(input2);
+          scan.useDelimiter("[;\r\n]+");
+          int a = Integer.parseInt(scan.next().replaceAll("\\s", ""));
+          scan.close();
+
+          String input3 = req.queryParams("input3");
+          scan = new Scanner(input3);
+          scan.useDelimiter("[;\r\n]+");
+          int b = Integer.parseInt(scan.next().replaceAll("\\s", ""));
+          scan.close();
 
           int[] arr = new int[inputList.size()];
           for (int i = 0; i < inputList.size(); i++)
