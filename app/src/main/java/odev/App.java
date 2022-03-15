@@ -17,7 +17,7 @@ public class App {
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
-        get("/", (req, res) -> "This program takes an array of integers and two integer discretely and check if the average of that array is in the range between two integers.");
+        get("/", (req, res) -> "This program takes an array of integers and two integer discretely and check if the average of that array is in the range between two integers.<br>/average page shows the algorithm.");
 
         post("/average", (req, res) -> {
           String input1 = req.queryParams("input1");

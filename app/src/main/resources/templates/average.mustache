@@ -1,15 +1,22 @@
 <title>My application</title>
   <h1>Average Calculation</h1>
 
+This algorithm computes the average of an array and checks if the average of that array is in range between two input numbers.<br>
+Format:<br>
+    An input array should be given to first(leftmost) text box. Example: <br>1<br>
+                                                                         2<br>
+                                                                         3<br>
+                                                                         4<br>
+                                                                         5<br>
+    An integer that will present the left border of the range should be given to middle text box. Example: x, [x, y]<br>
+    An integer that will present the right border of the range should be given to last(rightmost) text box. Example: y, [x, y]<br>
 
   <form action="average" method="post">
-      Enter an integer array:
+  <br>
       <textarea name="input1" rows="10" cols="10"></textarea>
-          Enter the first number:
-      <textarea name="input2" rows="5" cols="10"></textarea>
-          Enter the second number:
-      <textarea name="input3" rows="5" cols="10"></textarea>
+      <textarea name="input2" rows="10" cols="10"></textarea>
+      <textarea name="input3" rows="10" cols="10"></textarea><br>
       <input type="submit">
   </form>
-
+<br>
   Result is {{result}}
