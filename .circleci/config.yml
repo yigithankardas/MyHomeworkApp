@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "UnitTest"
-          command: "cd /home/circleci/project/MyHomeworkApp || gradle test"
+          command: "cd /home/circleci/project/ || gradle test"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
