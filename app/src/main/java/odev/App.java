@@ -17,9 +17,9 @@ public class App {
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
-        get("/", (req, res) -> "This program takes an array of integers and two integer discretely and check if the average of that array is in the range between two integers.<br>/average page shows the algorithm.");
+        get("/", (req, res) -> "This program takes an array of integers and two integer discretely and check if the average of that array is in the range between two integers.");
 
-        post("/average", (req, res) -> {
+        post("/compute", (req, res) -> {
           String input1 = req.queryParams("input1");
           Scanner scan = new Scanner(input1);
           scan.useDelimiter("[;\r\n]+");
@@ -42,7 +42,7 @@ public class App {
           int b = Integer.parseInt(scan.next().replaceAll("\\s", ""));
           scan.close();
 
-          int[] arr = new int[inputList.size()];
+          Integer[] arr = new Integer[inputList.size()];
           for (int i = 0; i < inputList.size(); i++)
               arr[i] = inputList.get(i);
 
@@ -54,7 +54,7 @@ public class App {
         }, new MustacheTemplateEngine());
 
 
-        get("/average",
+        get("/compute",
             (rq, rs) -> {
               Map<String, String> map = new HashMap<String, String>();
               map.put("result", "not computed yet!");
@@ -72,7 +72,7 @@ public class App {
     }
 
 
-    public static boolean isItsAverageInRangeBetween(int[] array, int a, int b) {
+    public static boolean isItsAverageInRangeBetween(Integer[] array, int a, int b) {
         if (array == null)
             return false;
         if (array.length == 0)
