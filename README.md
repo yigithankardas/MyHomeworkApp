@@ -3,4 +3,4 @@ This project was design to help us understand the basics of CI/CD, unit tests an
 
 Demo website: https://obscure-chamber-72221.herokuapp.com/
 
-[![yigithankardas](https://circleci.com/gh/yigithankardas/MyHomeworkApp.svg?style=svg)](https://app.circleci.com/pipelines/github/yigithankardas)
+[![yigithankardas](https://circleci.com/gh/yigithankardas/MyHomeworkApp.svg?style=svg)](https://app.circleci.com/pipelines/github/yigithankardas/MyHomeworkApp)
